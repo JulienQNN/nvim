@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\julie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\catppuccin",
     url = "https://github.com/catppuccin/nvim"
   },
+  harpoon = {
+    loaded = true,
+    path = "C:\\Users\\julie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\harpoon",
+    url = "https://github.com/thePrimeagen/harpoon"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "C:\\Users\\julie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
@@ -89,6 +94,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\julie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  playground = {
+    loaded = true,
+    path = "C:\\Users\\julie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\playground",
+    url = "https://github.com/nvim-treesitter/playground"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "C:\\Users\\julie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
@@ -98,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\julie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  undotree = {
+    loaded = true,
+    path = "C:\\Users\\julie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\undotree",
+    url = "https://github.com/mbbill/undotree"
   }
 }
 
