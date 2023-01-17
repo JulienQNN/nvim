@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
     use { 'thePrimeagen/harpoon' }
     use { 'mbbill/undotree' }
     use { 'tpope/vim-fugitive' }
+    use {'thePrimeagen/vim-be-good'}
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
