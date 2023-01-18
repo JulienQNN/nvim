@@ -115,6 +115,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\julie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["feline.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\julie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\feline.nvim",
+    url = "https://github.com/feline-nvim/feline.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "C:\\Users\\julie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\friendly-snippets",
@@ -190,10 +195,10 @@ _G.packer_plugins = {
     path = "C:\\Users\\julie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\undotree",
     url = "https://github.com/mbbill/undotree"
   },
-  ["vim-be-god"] = {
+  ["vim-be-good"] = {
     loaded = true,
-    path = "C:\\Users\\julie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-be-god",
-    url = "https://github.com/thePrimeagen/vim-be-god"
+    path = "C:\\Users\\julie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-be-good",
+    url = "https://github.com/thePrimeagen/vim-be-good"
   },
   ["vim-fugitive"] = {
     loaded = true,

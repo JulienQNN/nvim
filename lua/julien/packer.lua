@@ -19,7 +19,8 @@ return require('packer').startup(function(use)
     use { 'thePrimeagen/harpoon' }
     use { 'mbbill/undotree' }
     use { 'tpope/vim-fugitive' }
-    use {'thePrimeagen/vim-be-good'}
+    use { 'feline-nvim/feline.nvim' }
+    use { 'thePrimeagen/vim-be-good' }
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
@@ -48,5 +49,12 @@ return require('packer').startup(function(use)
             },
             tag = 'nightly' -- optional, updated every week. (see issue #1193)
         }
+    }
+
+    use {
+        'goolord/alpha-nvim',
+        config = function()
+            require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+        end
     }
 end)
