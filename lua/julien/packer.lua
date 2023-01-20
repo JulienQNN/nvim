@@ -13,18 +13,17 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    use { "catppuccin/nvim", as = "catppuccin" }
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use { 'nvim-treesitter/playground' }
-    use { 'thePrimeagen/harpoon' }
-    use { 'mbbill/undotree' }
-    use { 'tpope/vim-fugitive' }
-    use { 'feline-nvim/feline.nvim' }
-    use { 'thePrimeagen/vim-be-good' }
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        requires = {
-            -- LSP Support
+        use { "catppuccin/nvim", as = "catppuccin" }
+        use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+        use { 'nvim-treesitter/playground' }
+        use { 'thePrimeagen/harpoon' }
+        use { 'mbbill/undotree' }
+        use { 'tpope/vim-fugitive' }
+        use { 'feline-nvim/feline.nvim' }
+        use {
+            'VonHeikemen/lsp-zero.nvim',
+            requires = {
+                -- LSP Support
             { 'neovim/nvim-lspconfig' },
             { 'williamboman/mason.nvim' },
             { 'williamboman/mason-lspconfig.nvim' },
