@@ -4,9 +4,11 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+
     -- Packer can manage itself
     use { 'wbthomason/packer.nvim' }
 
+    -- Telescope
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = { { 'nvim-lua/plenary.nvim' } }
@@ -35,21 +37,34 @@ return require('packer').startup(function(use)
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
+
+    -- Rainbow brackets
+    use { "luochen1990/rainbow" }
+    -- Comments
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
     -- Tree
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
             'nvim-tree/nvim-web-devicons', -- for file icons
         },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+        tag = 'nightly'
     }
 
+    -- Alpha Vim Welcome dashboard
     use {
         'goolord/alpha-nvim',
         config = function()
             require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
         end
     }
+
     -- Lsp
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -64,6 +79,7 @@ return require('packer').startup(function(use)
             use {
                 'VonHeikemen/lsp-zero.nvim',
                 requires = {
+
                     -- LSP Support
                     { 'neovim/nvim-lspconfig' },
                     { 'williamboman/mason.nvim' },
@@ -79,6 +95,7 @@ return require('packer').startup(function(use)
 
                     -- Snippets
                     { 'L3MON4D3/LuaSnip' },
+
                     -- Snippet Collection (Optional)
                     { 'rafamadriz/friendly-snippets' },
                 },
