@@ -12,15 +12,32 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-
+    -- catppuccin colors
     use { "catppuccin/nvim", as = "catppuccin" }
+
+    -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use { 'nvim-treesitter/playground' }
+
+    -- Fast File Switcher from the thePrimeagen
     use { 'thePrimeagen/harpoon' }
+
+    -- Undotree what to say
     use { 'mbbill/undotree' }
+
+    -- Git
     use { 'tpope/vim-fugitive' }
+
+    -- Status Bar
     use { 'feline-nvim/feline.nvim' }
-    use { 'thePrimeagen/vim-be-good' }
+
+    -- Autopairs
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
+
+    -- Lsp
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
@@ -42,13 +59,16 @@ return require('packer').startup(function(use)
             -- Snippet Collection (Optional)
             { 'rafamadriz/friendly-snippets' },
         },
-        use {
-            'nvim-tree/nvim-tree.lua',
-            requires = {
-                'nvim-tree/nvim-web-devicons', -- optional, for file icons
-            },
-            tag = 'nightly' -- optional, updated every week. (see issue #1193)
-        }
+
+
+    }
+
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- for file icons
+        },
+        tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
     use {
