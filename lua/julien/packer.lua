@@ -66,7 +66,7 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- init.lua
+    -- Colors lines
     use { "lukas-reineke/indent-blankline.nvim" }
 
     -- LSP
