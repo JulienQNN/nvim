@@ -38,9 +38,6 @@ return require('packer').startup(function(use)
         config = function() require("nvim-autopairs").setup {} end
     }
 
-    -- Rainbow brackets
-    use { "luochen1990/rainbow" }
-
     -- Comments
     use {
         'numToStr/Comment.nvim',
@@ -68,6 +65,12 @@ return require('packer').startup(function(use)
 
     -- Colors lines
     use { "lukas-reineke/indent-blankline.nvim" }
+
+    -- Dev Icons
+    use 'nvim-tree/nvim-web-devicons'
+
+    -- Barbar
+    use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
 
     -- LSP
     use {
