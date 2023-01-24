@@ -72,6 +72,12 @@ return require('packer').startup(function(use)
     -- Barbar
     use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
 
+    -- Go Vim
+    use 'ray-x/go.nvim'
+    use 'ray-x/guihua.lua'
+    use 'neovim/nvim-lspconfig'
+    use 'nvim-treesitter/nvim-treesitter'
+
     -- LSP
     use {
         'VonHeikemen/lsp-zero.nvim',
