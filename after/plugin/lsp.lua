@@ -1,8 +1,13 @@
 local lsp = require("lsp-zero")
-
 lsp.preset("recommended")
 
+-- (Optional) Configure lua language server for neovim
+lsp.nvim_workspace()
+
+
 lsp.ensure_installed({
+    'html',
+    'cssls',
     'tsserver',
     'sumneko_lua',
     'eslint',
@@ -19,7 +24,6 @@ lsp.configure('sumneko_lua', {
     }
 })
 
-
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -28,11 +32,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
     ["<C-Space>"] = cmp.mapping.complete(),
 })
-
--- disable completion with tab
--- this helps with copilot setup
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
 
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings
@@ -58,6 +57,26 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+local null_ls = require('null-ls')
+local null_opts = lsp.build_options('null-ls', {})
+
+null_ls.setup({
+    on_attach = function(client, bufnr)
+        null_opts.on_attach(client, bufnr)
+    end,
+    sources = {
+        -- You can add tools not supported by mason.nvim
+    }
+})
+require('mason-null-ls').setup({
+    ensure_installed = nil,
+    automatic_installation = false, -- You can still set this to `true`
+    automatic_setup = true,
+})
+
+-- Required when `automatic_setup` is true
+require('mason-null-ls').setup_handlers()
 
 vim.diagnostic.config({
     virtual_text = true,

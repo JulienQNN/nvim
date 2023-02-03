@@ -17,7 +17,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-
+  
 -- Paste without loosing current paste buffer
 vim.keymap.set("x", "<leader>p", [["_dP]])
 

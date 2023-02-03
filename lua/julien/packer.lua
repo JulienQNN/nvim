@@ -1,5 +1,4 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -70,38 +69,76 @@ return require('packer').startup(function(use)
     use 'nvim-tree/nvim-web-devicons'
 
     -- Barbar
-    use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
+    -- use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
 
-    -- Go Vim
-    use 'ray-x/go.nvim'
-    use 'ray-x/guihua.lua'
-    use 'neovim/nvim-lspconfig'
-    use 'nvim-treesitter/nvim-treesitter'
+    use { 'neovim/nvim-lspconfig' }
 
     -- LSP
+
     use {
         'VonHeikemen/lsp-zero.nvim',
+        branch = 'v1.x',
         requires = {
-
             -- LSP Support
             { 'neovim/nvim-lspconfig' },
             { 'williamboman/mason.nvim' },
             { 'williamboman/mason-lspconfig.nvim' },
-
+            { "jay-babu/mason-null-ls.nvim" },
+            { 'jose-elias-alvarez/null-ls.nvim' },
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
             { 'saadparwaiz1/cmp_luasnip' },
-            { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-nvim-lua' },
 
             -- Snippets
             { 'L3MON4D3/LuaSnip' },
-
-            -- Snippet Collection (Optional)
             { 'rafamadriz/friendly-snippets' },
+
         }
     }
+    use {
+        "hrsh7th/nvim-cmp",
+        requires = {
+            "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp",
+            'quangnguyen30192/cmp-nvim-ultisnips', 'hrsh7th/cmp-nvim-lua',
+            'octaltree/cmp-look', 'hrsh7th/cmp-path', 'hrsh7th/cmp-calc',
+            'f3fora/cmp-spell', 'hrsh7th/cmp-emoji'
+        }
+    }
+    use {
+        'tzachar/cmp-tabnine',
+        run = './install.sh',
+        requires = 'hrsh7th/nvim-cmp'
+    }
+    -- Autotag
+    use { "windwp/nvim-ts-autotag" }
+
+    -- Bufferline
+    use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
+
+    -- winbar
+    use({
+        "utilyre/barbecue.nvim",
+        tag = "*",
+        requires = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        after = "nvim-web-devicons", -- keep this if you're using NvChad
+        config = function()
+            require("barbecue").setup()
+        end,
+    })
+    -- GitSigns
+    use {
+        'lewis6991/gitsigns.nvim',
+        tag = 'release'
+    }
+    -- Prettier
+    use { 'MunifTanjim/prettier.nvim' }
+    use { "nvim-lua/plenary.nvim" }
 
 end)

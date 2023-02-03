@@ -21,4 +21,4 @@ vim.opt.scrolloff = 15
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
-vim.opt.updatetime = 40
+vim.opt.updatetime = 20
