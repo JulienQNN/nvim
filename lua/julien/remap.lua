@@ -34,7 +34,10 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 -- Delete without register
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
--- Format file with lsp
+
+vim.keymap.set('n', '<C-r>', '<Plug>(cokeline-focus-prev)', { silent = true })
+vim.keymap.set('n', '<C-e>', '<Plug>(cokeline-focus-next)', { silent = true })
+-- Format fil  with lsp
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- Quick fix navigation
