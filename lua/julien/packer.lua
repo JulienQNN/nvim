@@ -12,9 +12,6 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-    -- catppuccin colors
-    use { "catppuccin/nvim", as = "catppuccin" }
-
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use { 'nvim-treesitter/playground' }
@@ -68,9 +65,6 @@ return require('packer').startup(function(use)
     -- Dev Icons
     use 'nvim-tree/nvim-web-devicons'
 
-    -- Barbar
-    -- use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
-
     use { 'neovim/nvim-lspconfig' }
 
     -- LSP
@@ -96,7 +90,6 @@ return require('packer').startup(function(use)
             -- Snippets
             { 'L3MON4D3/LuaSnip' },
             { 'rafamadriz/friendly-snippets' },
-
         }
     }
     use {
@@ -116,9 +109,14 @@ return require('packer').startup(function(use)
     -- Autotag
     use { "windwp/nvim-ts-autotag" }
 
-    -- Bufferline
-    use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
-
+    -- Cokeline
+    use({
+        'noib3/nvim-cokeline',
+        requires = 'kyazdani42/nvim-web-devicons', -- If you want devicons
+        config = function()
+            require('cokeline').setup()
+        end
+    })
     -- winbar
     use({
         "utilyre/barbecue.nvim",
@@ -129,7 +127,9 @@ return require('packer').startup(function(use)
         },
         after = "nvim-web-devicons", -- keep this if you're using NvChad
         config = function()
-            require("barbecue").setup()
+            require("barbecue").setup {
+                theme = "catppuccin",
+            }
         end,
     })
     -- GitSigns
@@ -140,5 +140,8 @@ return require('packer').startup(function(use)
     -- Prettier
     use { 'MunifTanjim/prettier.nvim' }
     use { "nvim-lua/plenary.nvim" }
+
+    -- catppuccin colors
+    use { "catppuccin/nvim", as = "catppuccin" }
 
 end)

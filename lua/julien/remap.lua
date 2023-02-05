@@ -1,5 +1,11 @@
 vim.g.mapleader = " "
 
+-- Save file
+vim.keymap.set("n", "ww", ":update<CR>")
+
+-- Save and close file
+vim.keymap.set("n", "qq", ":wq<CR>")
+
 -- Navigate between windows
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
@@ -17,7 +23,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-  
+
 -- Paste without loosing current paste buffer
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
@@ -36,6 +42,14 @@ vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+-- move current tab to previous position
+vim.api.nvim_set_keymap("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true })
+-- move current tab to next position
+vim.api.nvim_set_keymap("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })
+
+-- NvimTreeToggle
+vim.api.nvim_set_keymap("n", "<C-i>", ":NvimTreeToggle<CR>", { noremap = true })
 
 -- Crazy replace all for the pointed word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
