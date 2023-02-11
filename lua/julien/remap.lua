@@ -47,6 +47,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- move current tab to previous position
 vim.api.nvim_set_keymap("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true })
+
 -- move current tab to next position
 vim.api.nvim_set_keymap("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })
 
@@ -54,7 +55,15 @@ vim.api.nvim_set_keymap("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-i>", ":NvimTreeToggle<CR>", { noremap = true })
 
 -- ToggleTerm
-vim.keymap.set({ "n", "t" }, "<C-y>", ":ToggleTerm<CR>")
+vim.keymap.set({ "n", "t" }, "<C-t>", ":ToggleTerm size=10 direction=horizontal<CR>")
+vim.keymap.set({ "n", "t" }, "<C-y>", ":ToggleTerm2 size=10 direction=horizontal<CR>")
+
+function _G.set_terminal_keymaps()
+    local opts = { buffer = 0 }
+    vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+end
+
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- Crazy replace all for the pointed word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
