@@ -169,7 +169,6 @@ local right_padding = {
 
 require("cokeline").setup({
     show_if_buffers_are_at_least = 1,
-
     buffers = {
         -- filter_valid = function(buffer) return buffer.type ~= 'terminal' end,
         -- filter_visible = function(buffer) return buffer.type ~= 'terminal' end,
@@ -195,7 +194,6 @@ require("cokeline").setup({
         components = {
             {
                 text = "  Nvim Tree ",
-                -- text = "  NvimTree",
                 fg = "#f9e2af",
                 bg = "#181825",
                 style = "bold",

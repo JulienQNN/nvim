@@ -41,6 +41,10 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
+    -- Toggle Term
+    use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+    end }
 
     -- Tree
     use {
@@ -132,15 +136,27 @@ return require('packer').startup(function(use)
             }
         end,
     })
+
     -- GitSigns
     use {
         'lewis6991/gitsigns.nvim',
         tag = 'release'
     }
+
     -- Prettier
     use { 'MunifTanjim/prettier.nvim' }
     use { "nvim-lua/plenary.nvim" }
 
+    -- Cheatsheet
+    use {
+        'sudormrfbin/cheatsheet.nvim',
+
+        requires = {
+            { 'nvim-telescope/telescope.nvim' },
+            { 'nvim-lua/popup.nvim' },
+            { 'nvim-lua/plenary.nvim' },
+        }
+    }
     -- catppuccin colors
     use { "catppuccin/nvim", as = "catppuccin" }
 
