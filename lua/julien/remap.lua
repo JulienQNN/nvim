@@ -53,6 +53,9 @@ vim.api.nvim_set_keymap("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })
 -- NvimTreeToggle
 vim.api.nvim_set_keymap("n", "<C-i>", ":NvimTreeToggle<CR>", { noremap = true })
 
+-- ToggleTerm
+vim.keymap.set({ "n", "t" }, "<C-y>", ":ToggleTerm<CR>")
+
 -- Crazy replace all for the pointed word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
