@@ -36,6 +36,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set('n', '<C-x>', '<Plug>(cokeline-focus-prev)', { silent = true })
 vim.keymap.set('n', '<C-c>', '<Plug>(cokeline-focus-next)', { silent = true })
+
 -- Format fil  with lsp
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
@@ -56,15 +57,13 @@ vim.api.nvim_set_keymap("n", "<C-i>", ":NvimTreeToggle<CR>", { noremap = true })
 
 -- ToggleTerm
 vim.keymap.set({ "n", "t" }, "<C-t>", ":ToggleTerm size=10 direction=horizontal<CR>")
-vim.keymap.set({ "n", "t" }, "<C-y>", ":ToggleTerm2 size=10 direction=horizontal<CR>")
-
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0 }
     vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
 end
 
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
-
 -- Crazy replace all for the pointed word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
