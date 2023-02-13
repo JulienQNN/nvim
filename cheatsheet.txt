@@ -26,38 +26,17 @@ Delete without register "N, V" | <leader>d
 Switch right tab "N" | <C-x>
 Switch left tab "N" | <C-c>
 
-
 Format file "N" | <leader-f>
 
--- Quick fix navigation
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+Quick fix navigation next | <C-k>
+Quick fix navigation prev | <C-j>
+Quick fix navigation next 2 | <leader>k
+Quick fix navigation prev 2 | <leader>j
 
--- move current tab to previous position
-vim.api.nvim_set_keymap("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true })
+Toggle NvimTree "N" | <C-i>
 
--- move current tab to next position
-vim.api.nvim_set_keymap("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })
+ToggleTerm "N, T" | <C-t>
 
--- NvimTreeToggle
-vim.api.nvim_set_keymap("n", "<C-i>", ":NvimTreeToggle<CR>", { noremap = true })
+Replace all for the pointed word "N" | <leader>s
 
--- ToggleTerm
-vim.keymap.set({ "n", "t" }, "<C-t>", ":ToggleTerm size=10 direction=horizontal<CR>")
-function _G.set_terminal_keymaps()
-    local opts = { buffer = 0 }
-    vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-end
-
--- if you only want these mappings for toggle term use term://*toggleterm#* instead
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
--- Crazy replace all for the pointed word
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Make executable, you know
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CRr", { silent = true })
-
--- Remove Q from exiting Vim (avoid fails, you know)
-vim.keymap.set("n", "Q", "<nop>")
+Make executable the current file "N" | <leader>x
