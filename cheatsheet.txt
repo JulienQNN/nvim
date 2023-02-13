@@ -10,30 +10,24 @@ Move line or M lines T "V" | K
 
 Append line under "N" | J
 
-vim.keymap.set("n", "J", "mzJ`z")
+Move up half of the file "N" | <C-u>
+Move down half of the file "N" | <C-d>
 
--- Move down half or up half of the file
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+Move up to next search word "N" | N
+Move down to next search word "N" | n
 
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+Paste without loosing current paste buffer "X" | <leader>p
 
--- Paste without loosing current paste buffer
-vim.keymap.set("x", "<leader>p", [["_dP]])
+Yank global word (with system clipboard) "N, V" | <leader>y
+Yank global line (with system clipboard) "N, V" | <leader>Y
 
--- Yank global (with system clipboard)
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+Delete without register "N, V" | <leader>d
 
--- Delete without register
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+Switch right tab "N" | <C-x>
+Switch left tab "N" | <C-c>
 
-vim.keymap.set('n', '<C-x>', '<Plug>(cokeline-focus-prev)', { silent = true })
-vim.keymap.set('n', '<C-c>', '<Plug>(cokeline-focus-next)', { silent = true })
 
--- Format fil  with lsp
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+Format file "N" | <leader-f>
 
 -- Quick fix navigation
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")

@@ -12,6 +12,8 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Move line or M lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+
+
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Append line below
@@ -29,7 +31,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Yank global (with system clipboard)
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>Y", [["+Y]])
 
 -- Delete without register
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
