@@ -9,19 +9,8 @@ lsp.ensure_installed({
     'html',
     'cssls',
     'tsserver',
-    'sumneko_lua',
+    'lua_ls',
     'eslint',
-})
-
--- Fix Undefined global 'vim'
-lsp.configure('sumneko_lua', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
 })
 
 local cmp = require('cmp')

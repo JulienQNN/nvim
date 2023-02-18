@@ -13,7 +13,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- Move line or M lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
-
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Append line below
@@ -70,7 +69,7 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Make executable, you know
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CRr", { silent = true })
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Remove Q from exiting Vim (avoid fails, you know)
 vim.keymap.set("n", "Q", "<nop>")
