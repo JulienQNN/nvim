@@ -8,7 +8,11 @@ return {
 		dependencies = "nvim-lua/plenary.nvim",
 	},
 	-- Treesitter
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", dependencies = "nvim-treesitter/playground" },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		dependencies = { "nvim-treesitter/playground", "nvim-treesitter/nvim-treesitter-context" },
+	},
 	-- Fast File Switcher from the thePrimeagen
 	"thePrimeagen/harpoon",
 	-- Undotree what to say
