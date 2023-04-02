@@ -45,6 +45,8 @@ vim.keymap.set("n", "<C-k>", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>lprev<CR>zz")
 -- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 -- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+-- HopWord
+vim.keymap.set("n", "<leader>h", "<cmd>HopWord<cr>", { silent = true, noremap = true })
 -- Trouble
 vim.keymap.set("n", "<leader>t", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
 
@@ -57,12 +59,13 @@ vim.keymap.set("n", "<C-i>", ":NeoTreeFloatToggle<CR>", { noremap = true })
 -- ToggleTerm
 vim.keymap.set({ "n", "t" }, "<C-t>", ":ToggleTerm size=10 direction=horizontal<CR>")
 function _G.set_terminal_keymaps()
-	local opts = { buffer = 0 }
-	vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+    local opts = { buffer = 0 }
+    vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+
 -- Crazy replace all for the pointed word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
