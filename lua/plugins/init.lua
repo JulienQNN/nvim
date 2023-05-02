@@ -39,7 +39,10 @@ return {
     -- Git
     "tpope/vim-fugitive",
     -- Status Bar
-    "feline-nvim/feline.nvim",
+    {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    },
     -- Autopairs
     {
         "windwp/nvim-autopairs",

@@ -43,10 +43,10 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 -- Quick fix navigation
 vim.keymap.set("n", "<C-k>", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>lprev<CR>zz")
--- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
--- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
 -- HopWord
 vim.keymap.set("n", "<leader>h", "<cmd>HopWord<cr>", { silent = true, noremap = true })
+
 -- Trouble
 vim.keymap.set("n", "<leader>t", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
 
