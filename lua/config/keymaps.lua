@@ -73,7 +73,8 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Copilot accept suggestion
-vim.keymap.set("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+vim.keymap.set("i", "<C-J>", 'copilot#Accept("<CR>")',
+    { noremap = true, silent = true, expr = true, replace_keycodes = false })
 
 -- Remove Q from exiting Vim (avoid fails, you know)
 vim.keymap.set("n", "Q", "<nop>")

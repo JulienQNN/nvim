@@ -1,3 +1,27 @@
+local colors = {
+    red = '#f38ba8',
+    grey = '#45475a',
+    base = '#181825',
+    black = '#11111b',
+    lavender = '#b4befe',
+    teal = '#94e2d5',
+    peach = '#fab387',
+    green = '#a6e3a1',
+    blue = '#89b4fa'
+}
+
+local theme = {
+    normal = {
+        a = { fg = colors.black, bg = colors.blue },
+        b = { fg = colors.lavender, bg = colors.grey },
+        c = { fg = colors.lavender, bg = colors.base },
+        z = { fg = colors.black, bg = colors.blue },
+    },
+    insert = { a = { fg = colors.black, bg = colors.green } },
+    visual = { a = { fg = colors.black, bg = colors.peach } },
+    replace = { a = { fg = colors.black, bg = colors.green } },
+}
+
 local M = {
     'nvim-lualine/lualine.nvim',
     name = "lualine",
@@ -6,8 +30,8 @@ local M = {
     config = function()
         require('lualine').setup {
             options = {
+                theme = theme,
                 icons_enabled = true,
-                theme = 'catppuccin',
                 component_separators = '|',
                 section_separators = { left = '', right = '' },
             },
@@ -36,4 +60,6 @@ local M = {
         }
     end
 }
+
+
 return M
