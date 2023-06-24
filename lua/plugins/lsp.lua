@@ -12,6 +12,9 @@ local M = {
             "tsserver",
             "lua_ls",
             "eslint",
+            "terraformls",
+            "dockerls",
+
         })
 
         local cmp = require("cmp")
@@ -82,12 +85,9 @@ local M = {
 
         require("mason-null-ls").setup({
             ensure_installed = nil,
-            automatic_installation = false, -- You can still set this to `true`
+            automatic_installation = true, -- You can still set this to `true`
             automatic_setup = true,
         })
-
-        -- Required when `automatic_setup` is true
-        require("mason-null-ls").setup_handlers()
 
         vim.diagnostic.config({
             virtual_text = true,

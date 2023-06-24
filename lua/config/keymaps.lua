@@ -18,11 +18,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- Move down half or up half of the file
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "<A-j>", "<C-d>zz")
+vim.keymap.set("n", "<A-k>", "<C-u>zz")
 
 -- Paste without loosing current paste buffer
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -75,6 +72,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 -- Copilot accept suggestion
 vim.keymap.set("i", "<C-J>", 'copilot#Accept("<CR>")',
     { noremap = true, silent = true, expr = true, replace_keycodes = false })
+
 
 -- Remove Q from exiting Vim (avoid fails, you know)
 vim.keymap.set("n", "Q", "<nop>")

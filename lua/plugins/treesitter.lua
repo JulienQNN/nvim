@@ -30,7 +30,9 @@ local M = {
                 "go",
                 "rust",
                 "toml",
-            },     -- one of "all" or a list of languages
+                "hcl",
+                "terraform",
+            },                 -- one of "all" or a list of languages
             highlight = {
                 enable = true, -- false will disable the whole extension
                 additional_vim_regex_highlighting = true,
