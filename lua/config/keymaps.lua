@@ -11,7 +11,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Move line or M lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Append line below
@@ -51,7 +50,7 @@ vim.keymap.set("n", "<leader>t", "<cmd>TroubleToggle<cr>", { silent = true, nore
 vim.keymap.set("n", "<leader>qs", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
 
 -- NeoTreeToggle
-vim.keymap.set("n", "<C-i>", ":NeoTreeFloatToggle<CR>", { noremap = true })
+vim.keymap.set("n", "<C-i>", ":Telescope file_browser<CR>", { noremap = true })
 
 -- ToggleTerm
 vim.keymap.set({ "n", "t" }, "<C-t>", ":ToggleTerm size=10 direction=horizontal<CR>")

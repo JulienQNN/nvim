@@ -7,6 +7,7 @@ return {
         version = "0.1.1",
         dependencies = "nvim-lua/plenary.nvim",
     },
+    'stevearc/oil.nvim',
     -- Hop
     {
         "phaazon/hop.nvim",
@@ -26,16 +27,6 @@ return {
     "RRethy/vim-illuminate",
     -- Trouble
     "folke/trouble.nvim",
-    -- Neo tree
-    {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
-        },
-    },
     -- Git
     "tpope/vim-fugitive",
     -- Status Bar
