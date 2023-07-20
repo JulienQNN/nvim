@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 
 -- Save file
-vim.keymap.set("n", "ww", ":update<CR>")
+vim.keymap.set("n", "ww", ":update<CR> :e<CR>")
 -- Save and close file
 vim.keymap.set("n", "qq", ":wq<CR>")
 
