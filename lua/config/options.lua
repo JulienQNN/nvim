@@ -1,6 +1,6 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -8,7 +8,6 @@ vim.opt.expandtab = true
 vim.opt.showtabline = 2
 vim.opt.smartindent = true
 vim.opt.wrap = false
-
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.hlsearch = false
@@ -25,13 +24,13 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_show_icons = {
-	git = 0,
-	folders = 1,
-	files = 1,
+  git = 0,
+  folders = 1,
+  files = 1,
 }
 
 vim.opt.termguicolors = true
-vim.opt.updatetime = 10
+vim.opt.updatetime = 5
 vim.g.copilot_no_tab_map = true
 
 -- Automagically formatting on save

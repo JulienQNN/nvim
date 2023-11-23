@@ -1,30 +1,30 @@
 return {
-    {
-        "neovim/nvim-lspconfig",
-        opts = {
-            servers = {
-                tailwindcss = {},
-            },
-        },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        tailwindcss = {},
+      },
     },
-    {
-        "NvChad/nvim-colorizer.lua",
-        opts = {
-            user_default_options = {
-                tailwind = true,
-            },
-        },
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = {
+      user_default_options = {
+        tailwind = true,
+      },
     },
-    {
-        "hrsh7th/nvim-cmp",
-        dependencies = {
-            { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
-        },
-        opts = function(_, opts)
-            opts.formatting = {
-                -- format_kinds(entry, item)
-                format = require("tailwindcss-colorizer-cmp").formatter,
-            }
-        end,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
     },
+    opts = function(_, opts)
+      opts.formatting = {
+        -- format_kinds(entry, item)
+        format = require("tailwindcss-colorizer-cmp").formatter,
+      }
+    end,
+  },
 }
