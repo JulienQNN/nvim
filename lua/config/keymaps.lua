@@ -2,12 +2,12 @@
 vim.g.mapleader = " "
 
 -- Save file & save and close file
-vim.keymap.set("n", "ww", ":update<CR> :e<CR>")
-vim.keymap.set("n", "qq", ":wq<CR>")
+-- vim.keymap.set("n", "ww", ":update<CR> :e<CR>")
+-- vim.keymap.set("n", "qq", ":wq<CR>")
 
 -- Navigate between windows
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
+-- vim.keymap.set("n", "<C-h>", "<C-w>h")
+-- vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Move line or M lines
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -34,22 +34,27 @@ vim.keymap.set("n", "<leader>i", ":lua vim.diagnostic.open_float(nil, {focus=fal
 -- Format file with lsp
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
--- Quick fix navigation
-vim.keymap.set("n", "<C-k>", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>lprev<CR>zz")
+-- Quick fix navigation Custom with Trouble
+vim.keymap.set("n", "<C-j>",
+  function()
+    require("trouble").open(); require("trouble").next({ skip_groups = true, jump = true })
+  end)
+vim.keymap.set("n", "<C-k>",
+  function()
+    require("trouble").open(); require("trouble").previous({ skip_groups = true, jump = true })
+  end)
 
--- HopWord
-vim.keymap.set("n", "<leader>h", "<cmd>HopWord<cr>", { silent = true, noremap = true })
+
+-- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+-- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Trouble
 vim.keymap.set("n", "<leader>t", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
 
--- ToggleTerm
-vim.keymap.set({ "n", "t" }, "<C-t>", ":ToggleTerm size=10 direction=horizontal<CR>")
-function _G.set_terminal_keymaps()
-  local opts = { buffer = 0 }
-  vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
-end
+-- Telescope File Browser
+vim.keymap.set("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 
 -- If you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
@@ -60,12 +65,11 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- Make executable, you know
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
--- Copilot accept suggestion
-vim.g.copilot_no_tab_map = true
-vim.keymap.set("i", "<C-W>", "copilot#Accept('<CR>')",
-  { noremap = true, silent = true, expr = true, replace_keycodes = false })
-
 -- oil like you like yes yes
-vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>fe", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
+
+-- Gen
+vim.keymap.set({ 'n', 'v' }, '<leader>]', ':Gen<CR>')
+
 -- Remove Q from exiting Vim (avoid fails, you know)
 vim.keymap.set("n", "Q", "<nop>")

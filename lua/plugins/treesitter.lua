@@ -4,6 +4,8 @@
 -------------------------------------------------
 local M = {
   "nvim-treesitter/nvim-treesitter",
+  -- lazy = true,
+  -- priority = 900,
   build = ":TSUpdate",
   dependencies = { "nvim-treesitter/playground", "nvim-treesitter/nvim-treesitter-context" },
   config = function()
@@ -46,6 +48,47 @@ local M = {
         enable = true,
       },
       indent = { enable = true },
+      settings = {
+        yaml = {
+          format = {
+            enable = true,
+          },
+          hover = true,
+          completion = true,
+
+          customTags = {
+            "!And",
+            "!If",
+            "!Not",
+            "!Not sequence",
+            "!Equals",
+            "!Equals sequence",
+            "!Or",
+            "!FindInMap sequence",
+            "!Base64",
+            "!Cidr",
+            "!Cidr sequence",
+            "!Ref",
+            "!Sub",
+            "!GetAtt",
+            "!GetAtt sequence",
+            "!GetAZs",
+            "!ImportValue",
+            "!Select",
+            "!Select sequence",
+            "!Split",
+            "!Split sequence",
+            "!Join sequence",
+            "!And sequence",
+            "!If sequence",
+            "!Or sequence",
+            "!FindInMap",
+            "!Join",
+            "!Sub sequence",
+            "!ImportValue sequence"
+          },
+        },
+      },
     })
   end,
 }

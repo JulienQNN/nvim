@@ -1,15 +1,3 @@
-local colors = {
-  red = '#f38ba8',
-  grey = '#45475a',
-  base = '#181825',
-  black = '#11111b',
-  lavender = '#b4befe',
-  teal = '#94e2d5',
-  peach = '#fab387',
-  green = '#a6e3a1',
-  blue = '#89b4fa'
-}
-
 local M = {
   'nvim-lualine/lualine.nvim',
   name = "lualine",
@@ -21,7 +9,7 @@ local M = {
   config = function()
     require('lualine').setup {
       options = {
-        theme = 'catppuccin',
+        theme = 'catppuccin-mocha',
         icons_enabled = true,
         component_separators = '|',
         section_separators = { left = '', right = '' },
@@ -33,7 +21,29 @@ local M = {
         lualine_b = { 'filename', 'branch' },
         lualine_c = { 'fileformat' },
         lualine_x = {},
-        lualine_y = { 'filetype', 'progress' },
+        lualine_y = { {
+          'copilot',
+          symbols = {
+            status = {
+              icons = {
+                enabled = "",
+                disabled = "",
+                warning = "",
+                unknown = ""
+              },
+              hl = {
+                enabled = "#a6e3a1",
+                disabled = "#6272A4",
+                warning = "#fab387",
+                unknown = "#f38ba8"
+              }
+            },
+            spinners = require("copilot-lualine.spinners").dots,
+            spinner_color = "#6272A4"
+          },
+          show_colors = true,
+          show_loading = true
+        }, 'filetype', 'progress' },
         lualine_z = {
           { 'location', separator = { right = '' }, left_padding = 2 },
         },

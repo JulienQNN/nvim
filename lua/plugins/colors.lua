@@ -44,9 +44,9 @@ local M = {
             information = { "italic" },
           },
           underlines = {
-            errors = { "underline" },
+            errors = { "undercurl" },
             hints = { "underline" },
-            warnings = { "underline" },
+            warnings = { "undercurl" },
             information = { "underline" },
           },
         },

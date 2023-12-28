@@ -1,37 +1,43 @@
 local M = {
   {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make"
+  },
+  {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.4',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    tag = '0.1.5',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      "nvim-telescope/telescope-live-grep-args.nvim",
+      "nvim-telescope/telescope-fzf-native.nvim",
+    },
     config = function()
-      local builtin = require('telescope.builtin')
-      vim.keymap.set('n', '<leader>gp', builtin.find_files, {})
-      -- vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-      vim.keymap.set('n', '<leader>ps', function()
-        builtin.grep_string({ search = vim.fn.input("Grep > ") })
-      end)
       local telescope = require("telescope")
       telescope.setup({
         pickers = {
           find_files = {
-            theme = "dropdown",
-          }
+            hidden = true,
+          },
+          live_grep = {
+            hidden = true,
+          },
         },
         extensions = {
           fzf = {
-            fuzzy = true,                   -- false will only do exact matching
-            override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true,    -- override the file sorter
-            case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
           },
         },
       })
-      telescope.load_extension "fzf"
+      local builtin = require('telescope.builtin')
+
+      vim.keymap.set('n', '<leader>fd', builtin.find_files, {})
+      vim.keymap.set('n', '<leader>fr', builtin.live_grep, {})
+
+      require("telescope").load_extension("live_grep_args", "fzf")
     end
-  },
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make"
   },
 }
 
