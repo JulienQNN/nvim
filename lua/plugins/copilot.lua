@@ -4,19 +4,14 @@ local M = {
   event = "InsertEnter",
   lazy = true,
   config = function()
-    require('copilot').setup({
-      panel = {
-        enable = false,
-      },
+    require("copilot").setup({
       suggestion = {
-        enabled = false,
+        enabled = true,
         auto_trigger = true,
         debounce = 75,
         keymap = {
           accept = "<C-e>",
-          -- accept_word = true,
-          -- accept_line = true,
-          open = "<C-r>"
+          open = "<C-r>",
         },
       },
       filetypes = {
@@ -26,9 +21,9 @@ local M = {
         gitcommit = false,
         gitrebase = false,
         cvs = false,
-        ["."] = false,
+        ["."] = true,
       },
-      copilot_node_command = 'node', -- Node.js version must be > 18.x
+      copilot_node_command = "node", -- Node.js version must be > 18.x
       server_opts_overrides = {},
     })
   end,

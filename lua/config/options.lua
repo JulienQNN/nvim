@@ -16,6 +16,7 @@ vim.opt.incsearch = true
 vim.opt.foldmethod = "syntax"
 vim.opt.foldenable = false
 vim.opt.termguicolors = true
+vim.opt.cursorline = true
 
 vim.opt.scrolloff = 15
 vim.opt.signcolumn = "yes"
@@ -34,5 +35,6 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 5
 vim.g.copilot_no_tab_map = true
 
--- Automagically formatting on save
-vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
+-- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
+
+-- vim.lsp.set_log_level("off")

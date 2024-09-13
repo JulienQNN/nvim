@@ -1,13 +1,14 @@
 local M = {
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make"
+    build = "make",
   },
+
   {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.5',
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.5",
     dependencies = {
-      'nvim-lua/plenary.nvim',
+      "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-live-grep-args.nvim",
       "nvim-telescope/telescope-fzf-native.nvim",
     },
@@ -31,13 +32,13 @@ local M = {
           },
         },
       })
-      local builtin = require('telescope.builtin')
-
-      vim.keymap.set('n', '<leader>fd', builtin.find_files, {})
-      vim.keymap.set('n', '<leader>fr', builtin.live_grep, {})
 
       require("telescope").load_extension("live_grep_args", "fzf")
-    end
+      local builtin = require("telescope.builtin")
+
+      vim.keymap.set("n", "<leader>pf", builtin.git_files, {})
+      vim.keymap.set("n", "<C-p>", builtin.live_grep, {})
+    end,
   },
 }
 

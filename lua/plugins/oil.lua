@@ -2,8 +2,6 @@ local M = {
   "stevearc/oil.nvim",
   config = function()
     return require("oil").setup({
-      -- Id is automatically added at the beginning, and name at the end
-      -- See :help oil-columns
       columns = {
         "icon",
         --   "permissions",
@@ -17,7 +15,7 @@ local M = {
       },
       -- Window-local options to use for oil buffers
       win_options = {
-        wrap = false,
+        wrap = true,
         signcolumn = "no",
         cursorcolumn = false,
         foldcolumn = "0",
@@ -26,48 +24,31 @@ local M = {
         conceallevel = 3,
         concealcursor = "n",
       },
+
+      cleanup_delay_ms = 200,
+
       -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`
       default_file_explorer = true,
       -- Restore window options to previous values when leaving an oil buffer
       restore_win_options = true,
       -- Skip the confirmation popup for simple operations
-      skip_confirm_for_simple_edits = false,
+      skip_confirm_for_simple_edits = true,
       -- Deleted files will be removed with the trash_command (below).
-      delete_to_trash = false,
-      -- Change this to customize the command used when deleting to trash
-      trash_command = "trash-put",
+      delete_to_trash = true,
       -- Selecting a new/moved/renamed file or directory will prompt you to save changes first
       prompt_save_on_select_new_entry = true,
-      -- Keymaps in oil buffer. Can be any value that `vim.keymap.set` accepts OR a table of keymap
-      -- options with a `callback` (e.g. { callback = function() ... end, desc = "", nowait = true })
-      -- Additionally, if it is a string that matches "actions.<name>",
-      -- it will use the mapping at require("oil.actions").<name>
-      -- Set to `false` to remove a keymap
-      -- See :help oil-actions for a list of all available actions
-      keymaps = {
-        ["g?"] = "actions.show_help",
-        ["<CR>"] = "actions.select",
-        ["<C-s>"] = "actions.select_vsplit",
-        ["<C-h>"] = "actions.select_split",
-        ["<C-t>"] = "actions.select_tab",
-        ["<C-p>"] = "actions.preview",
-        ["<ESC>"] = "actions.close",
-        ["<C-l>"] = "actions.refresh",
-        ["-"] = "actions.parent",
-        ["_"] = "actions.open_cwd",
-        ["`"] = "actions.cd",
-        ["~"] = "actions.tcd",
-        ["g."] = "actions.toggle_hidden",
-      },
       -- Set to false to disable all of the above keymaps
       use_default_keymaps = true,
       view_options = {
         -- Show files and directories thtrueat start with "."
         show_hidden = true,
-        -- This function defines what is considered a "hidden" file
+        -- This function defines what will never be shown, even when `show_hidden` is set
+        natural_order = true,
+
         is_hidden_file = function(name, bufnr)
           return vim.startswith(name, ".")
         end,
+
         -- This function defines what will never be shown, even when `show_hidden` is set
         is_always_hidden = function(name, bufnr)
           return false
@@ -127,6 +108,6 @@ local M = {
         },
       },
     })
-  end
+  end,
 }
 return M
