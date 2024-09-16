@@ -23,11 +23,9 @@ return {
           "eslint",
           "html",
           "jsonls",
-          "tsserver",
           "lua_ls",
           "pyright",
           "vuels",
-          "tsserver",
           "yamlls",
         },
         handlers = {
@@ -52,7 +50,6 @@ return {
       lspconfig.jsonls.setup({})
       lspconfig.lua_ls.setup({})
       lspconfig.pyright.setup({})
-      lspconfig.tsserver.setup({})
       lspconfig.vuels.setup({})
       lspconfig.yamlls.setup({})
       lspconfig.terraformls.setup({})

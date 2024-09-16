@@ -21,7 +21,7 @@ require("lazy").setup("plugins", {
   },
   checker = { enabled = true, notify = false },
   change_detection = { enabled = true, notify = false },
-  install = { colorscheme = { "catppuccin" } },
+  install = { colorscheme = { "rose-pine" } },
   debug = false,
   performance = {
     rtp = {

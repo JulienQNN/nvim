@@ -10,7 +10,7 @@ local M = {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "catppuccin-mocha",
+        theme = "rose-pine",
         icons_enabled = true,
         component_separators = "|",
         section_separators = { left = "", right = "" },
