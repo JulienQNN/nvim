@@ -26,9 +26,9 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_show_icons = {
-  git = 0,
-  folders = 1,
-  files = 1,
+	git = 0,
+	folders = 1,
+	files = 1,
 }
 
 vim.opt.termguicolors = true
@@ -37,4 +37,4 @@ vim.g.copilot_no_tab_map = true
 
 -- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
 
--- vim.lsp.set_log_level("off")
+vim.lsp.set_log_level("off")
